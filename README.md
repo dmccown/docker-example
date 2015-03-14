@@ -1,5 +1,4 @@
 # Docker Example
-========
 Example showing docker setup with ansible and swarm and service discovery.
 
 Assuming you are on a mac:
