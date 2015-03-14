@@ -1,0 +1,9 @@
+---
+- hosts: all
+  sudo: yes
+  tasks:
+    - name: test connection
+      shell: ping -c 1 "{{ ansible_default_ipv4.address }}"
+      register: result
+
+    - debug: msg="{{ result|success }}"

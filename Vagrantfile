@@ -6,25 +6,25 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "debian-73"
+  config.vm.box = "ubuntu/trusty64"
   config.ssh.insert_key = false
 
-  config.vm.define 'host1' do |web|
+  config.vm.define 'host1' do |machine|
     machine.vm.hostname = 'host1'
-    web.vm.network 'private_network', ip: '10.11.0.101'
+    machine.vm.network 'private_network', ip: '10.11.0.101'
   end
 
-  config.vm.define 'host2' do |web|
+  config.vm.define 'host2' do |machine|
     machine.vm.hostname = 'host2'
-    web.vm.network 'private_network', ip: '10.11.0.102'
+    machine.vm.network 'private_network', ip: '10.11.0.102'
   end
 
-  config.vm.define 'host3' do |db|
+  config.vm.define 'host3' do |machine|
     machine.vm.hostname = 'host3'
-    db.vm.network 'private_network', ip: '10.11.0.100'
+    machine.vm.network 'private_network', ip: '10.11.0.100'
 
     machine.vm.provision :ansible do |ansible|
-      ansible.playbook = "playbook.yml"
+      ansible.playbook = "site.yml"
 
       # Disable default limit (required with Vagrant 1.5+)
       ansible.limit = 'all'
