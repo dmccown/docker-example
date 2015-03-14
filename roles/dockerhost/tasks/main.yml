@@ -1,0 +1,11 @@
+---
+- name: Adding docker apt server key
+  apt_key: keyserver=hkp://keyserver.ubuntu.com
+           id=36A1D7869245C8950F966E92D8576A8BA88D21E9
+           state=present
+
+- name: Adding docker apt repo
+  apt_repository: repo='deb https://get.docker.io/ubuntu docker main' state=present
+
+- name: Install docker
+  apt: name=lxc-docker update_cache=yes
