@@ -25,6 +25,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     machine.vm.provision :ansible do |ansible|
       ansible.playbook = "site.yml"
+      ansible.groups = {
+        "primary" => ["host1"],
+        "secondary" => ["host2", "host3"],
+      }
 
       # Disable default limit (required with Vagrant 1.5+)
       ansible.limit = 'all'
