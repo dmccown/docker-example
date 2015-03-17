@@ -9,7 +9,7 @@ vagrant up
 ```
 
 #### TODO
-* Setup consul
+* ~~Setup consul~~
 * Setup a docker app (httpd or something easy)
 * Setup docker swarm
 * Haproxy
